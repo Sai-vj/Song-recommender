@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head><title>{{ mood }} Playlists</title></head>
+<body style="text-align:center; margin-top:50px;">
+  <h2>Spotify Playlists for {{ mood }}</h2>
+  {% if playlists %}
+    <ul style="list-style:none;">
+      {% for p in playlists %}
+        <li><a href="{{ p.url }}" target="_blank">{{ p.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No playlists found 😔</p>
+  {% endif %}
+  <br><a href="/recommend">🔙 Try Another Mood</a>
+  <br><a href="/history">📜 View History</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><title>History</title></head>
+<body style="text-align:center; margin-top:50px;">
+  <h2>📜 Your Mood Search History</h2>
+  {% if records %}
+    <table border="1" style="margin:auto;">
+      <tr><th>Mood</th><th>Playlist</th><th>Time</th></tr>
+      {% for r in records %}
+        <tr>
+          <td>{{ r.mood }}</td>
+          <td><a href="{{ r.playlist_url }}" target="_blank">{{ r.playlist_name }}</a></td>
+          <td>{{ r.timestamp }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No history yet.</p>
+  {% endif %}
+  <br><a href="/recommend">🔙 Back</a>
+</body>
+</html>
